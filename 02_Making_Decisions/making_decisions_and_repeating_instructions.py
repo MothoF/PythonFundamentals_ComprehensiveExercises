@@ -16,6 +16,11 @@ def all_numbers():
     num2 = int(input())
 
     #enter your code here
+    for num in range(5):
+        if num == num1 or num == num2:
+            continue
+        else:
+            print(num)
 
 
 def dog_years():
@@ -33,6 +38,12 @@ def dog_years():
     h_age = int(input("Input a dog's age in human years: \n"))
 
     #enter your code here
+    d_years = 0
+    for num in range (1,h_age+1):
+        if num <= 2:
+            d_years += 10.5
+        else:
+            d_years += 4
 
 
 
@@ -50,6 +61,13 @@ def consonant_or_vowel():
     l = input("Input a letter of the alphabet: ")
 
     #enter your code here
+    vowels = 'aeiou'
+    message = ''
+    if l in vowels:
+        message = f"{l} is a vowel."
+    else:
+        message = f"{l} is a consonant."
+    print(message)
 
 
 def month_numbers():
@@ -68,6 +86,23 @@ def month_numbers():
     month_name = input("Input the name of Month: ")
 
     #enter your code here
+    month_name = month_name.title()
+    thirty_day_months = ["April", "June", "September", "November"]
+    thirty_one_day_months = ["January", "March", "May", "July", "August", "October", "December"]
+    output = ''
+
+    if month_name == 'February':
+        output += f'\nNo. of days: 28/29 days'
+    elif month_name in thirty_day_months:
+        output += f"\nNo. of days: 30 days"
+    elif month_name in thirty_one_day_months:
+        output += f"\nNo. of days: 31 days"
+    else:
+        output += 'Wrong month name'
+    
+    print(output)
+
+
 
 
 def pyramids():
@@ -87,16 +122,22 @@ def pyramids():
 
     rows = int(input())
     for i in range(0, rows):
+        output = ''
         for j in range(0, i + 1):
             #enter your code here
-            None
-        print("\r")
+            while j>=0:
+                output+='@'
+                j-=1
+        print(output)
 
+    #output = '@@@@@'
     for i in range(rows, 0, -1):
         for j in range(0, i - 1):
             #enter your code here
-            None
-        print("\r")
+            while j>=0:
+                output = output.replace('@','')
+                j-=1
+        print(output)
 
 
 def fibonacci():
@@ -146,8 +187,13 @@ if __name__ == "__main__":
     Run the entire program from here
     """
     # all_numbers()
+    all_numbers()
     # dog_years()
+    dog_years()
     # consonant_or_vowel()
+    consonant_or_vowel()
     # month_numbers()
+    month_numbers()
     # pyramids()
+    pyramids()
     # fibonacci()
